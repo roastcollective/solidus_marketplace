@@ -28,27 +28,27 @@ Spree::Admin::ProductsController.class_eval do
   end
 
   def adding_suppliers?
-    new_supplier_ids.count > current_supplier_ids.count
+    !new_supplier_ids.nil? && new_supplier_ids.count > current_supplier_ids.count
   end
 
   def removing_suppliers?
-    new_supplier_ids.count < current_supplier_ids.count
+    !new_supplier_ids.nil? && new_supplier_ids.count < current_supplier_ids.count
   end
 
   def same_suppliers?
-    new_supplier_ids == current_supplier_ids
+    new_supplier_ids.nil? || new_supplier_ids == current_supplier_ids
   end
 
   def same_number_of_suppliers?
-    new_supplier_ids.count == current_supplier_ids.count
+    new_supplier_ids.nil? || new_supplier_ids.count == current_supplier_ids.count
   end
 
   def different_suppliers?
-    new_supplier_ids.sort != current_supplier_ids.sort
+    !new_supplier_ids.nil? && new_supplier_ids.sort != current_supplier_ids.sort
   end
 
   def new_supplier_ids
-    return [] unless params["product"].present? && params["product"]["supplier_ids"].present?
+    return nil unless params["product"].present? && params["product"]["supplier_ids"].present?
     params["product"]["supplier_ids"].split(",").map(&:to_i)
   end
 
