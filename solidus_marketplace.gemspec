@@ -22,10 +22,10 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'durable_decorator', '~> 0.2.0'
-  s.add_dependency 'solidus_api', '~> 2.4'
-  s.add_dependency 'solidus_backend', '~> 2.4'
-  s.add_dependency 'solidus_core', '~> 2.4'
-  s.add_dependency 'solidus_gateway', '~> 2.4'
+  s.add_dependency 'solidus_api'
+  s.add_dependency 'solidus_backend'
+  s.add_dependency 'solidus_core'
+  s.add_dependency 'solidus_gateway'
 
   s.add_development_dependency 'capybara',           '~> 2.2'
   s.add_development_dependency 'coffee-rails'
