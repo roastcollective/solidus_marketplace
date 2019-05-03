@@ -33,11 +33,13 @@ module SolidusMarketplace
           condition: -> { can?(:index, Spree::Supplier) },
         )
 
-        # config.menu_items << Spree::BackendConfiguration::MenuItem.new(
-        #   [:shipments],
-        #   'plane',
-        #   condition: -> { can?(:index, Spree::Shipment) },
-        # )
+        if ENV.fetch('SOLIDUS_MARKETPLACE_MENUS', false)
+          config.menu_items << Spree::BackendConfiguration::MenuItem.new(
+            [:shipments],
+            'plane',
+            condition: -> { can?(:index, Spree::Shipment) },
+          )
+        end
       end
     end
 
