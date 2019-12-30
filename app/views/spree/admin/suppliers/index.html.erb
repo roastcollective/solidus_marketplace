@@ -1,6 +1,6 @@
 <%# Updated icon %>
 <% content_for :page_actions do %>
-  <%= button_to Spree.t('new_supplier'), new_object_url, class: 'btn btn-success' %>
+  <%= link_to Spree.t('new_supplier'), new_object_url, class: 'btn btn-primary' %>
 <% end %>
 
 <% admin_breadcrumb(plural_resource_name(Spree::Supplier)) %>
